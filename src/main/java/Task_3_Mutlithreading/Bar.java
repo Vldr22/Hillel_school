@@ -5,17 +5,17 @@ import Task_3_Mutlithreading.Products.Beer;
 import Task_3_Mutlithreading.Products.Cola;
 import Task_3_Mutlithreading.Products.Drinks;
 import Task_3_Mutlithreading.Products.Whiskey;
-
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 
 public class Bar implements UseMultithreading {
 
-    public volatile List<Drinks> drinksList = new ArrayList<>();
-    public volatile Map<Client, Orders> serviceMap = new HashMap<>();
+
+    public List<Drinks> drinksList = new CopyOnWriteArrayList<>();
+    public ConcurrentMap<Client, Orders> serviceMap = new ConcurrentHashMap<>();
 
     public Bar() {
         drinksList.add(new Beer(200));

@@ -4,6 +4,7 @@ public class Orders {
 
     public final String name;
     public final double amount;
+    public boolean statusAtWork = false;
 
     public Orders(String name, double amount) {
         this.name = name;

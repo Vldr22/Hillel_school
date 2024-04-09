@@ -11,7 +11,6 @@ import java.util.Objects;
 public class Bartender implements Runnable {
 
     public final Bar bar;
-
     private final String NAME;
     public Orders orderAtWork;
     private final int TIME_OF_WORK;
@@ -40,9 +39,9 @@ public class Bartender implements Runnable {
 
     private void searchFreeOrder() {
         for (Map.Entry<Client, Orders> map : bar.serviceMap.entrySet()) {
-            if (map.getValue() != null) {
+            if (map.getValue() != null && !map.getValue().statusAtWork) {
                 orderAtWork = map.getValue();
-                map.setValue(null);
+                map.getValue().statusAtWork = true;
                 System.out.println(NAME + " is assigned to fulfill the order! " + orderAtWork);
                 break;
             }
@@ -52,7 +51,7 @@ public class Bartender implements Runnable {
     private void dispensingDrinks() throws ConcurrentModificationException {
 
         for (Map.Entry<Client, Orders> map : bar.serviceMap.entrySet()) {
-            if (map.getKey().getOrder()==(orderAtWork)) {
+            if (map.getKey().getOrder().equals(orderAtWork)) {
                 bar.serviceMap.remove(map.getKey());
                 System.out.println(NAME + " completed the order: " + orderAtWork);
                 orderAtWork = null;
@@ -65,7 +64,7 @@ public class Bartender implements Runnable {
         System.out.println(NAME + "  started to fulfill the order: "
                 + orderAtWork);
         for (Drinks drink : bar.drinksList) {
-            if (orderAtWork != null && Objects.equals(drink.getNAME(), orderAtWork.getName())) {
+            if (orderAtWork != null && Objects.equals(drink.getName(), orderAtWork.getName())) {
                 if (drink.getAmount() - orderAtWork.getAmount() < 0) {
                     notEnoughProduct();
                 } else try {
