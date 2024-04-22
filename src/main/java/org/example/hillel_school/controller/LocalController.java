@@ -23,7 +23,7 @@ public class LocalController {
                                           @RequestParam(required = false, defaultValue = "") String sources,
                                           @RequestParam(required = false, defaultValue = "") String q,
                                           @RequestParam(required = false, defaultValue = "") String country,
-                                          @RequestParam(required = false, defaultValue = "") String language) {
+                                          @RequestParam(required = false, defaultValue = "") String language) throws Exception {
         return customNewsService.getTopHeadLines(category, sources, q, country, language);
     }
 }
