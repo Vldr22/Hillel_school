@@ -43,7 +43,7 @@ public class Bartender implements Runnable, UseMultithreading {
         for (Map.Entry<Client, Orders> map : bar.serviceMap.entrySet()) {
             if (map.getValue() != null && !map.getValue().statusAtWork) {
                 orderAtWork = map.getValue();
-                map.getValue().statusAtWork = true;
+                map.getValue().setStatusAtWork(true);
                 System.out.println(NAME + " is assigned to fulfill the order! " + orderAtWork);
                 break;
             }

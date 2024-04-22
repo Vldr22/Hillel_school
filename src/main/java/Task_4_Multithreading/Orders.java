@@ -15,6 +15,10 @@ public class Orders {
         return name;
     }
 
+    public void setStatusAtWork(boolean statusAtWork) {
+        this.statusAtWork = statusAtWork;
+    }
+
     public double getAmount() {
         return amount;
     }
