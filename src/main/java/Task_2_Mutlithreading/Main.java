@@ -1,6 +1,6 @@
 package Task_2_Mutlithreading;
 
-public class App {
+public class Main {
 
     public static void main(String[] args) {
 

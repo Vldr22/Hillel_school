@@ -6,9 +6,21 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Hillel_School" />
         <module name="Hillel School" />
         <module name="Hillel_school" />
+        <module name="News" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="NewsService" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Hillel_School" options="-parameters" />
+      <module name="News" options="-parameters" />
+      <module name="NewsService" options="" />
+    </option>
   </component>
 </project>
