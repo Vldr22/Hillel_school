@@ -18,7 +18,7 @@ public class CustomNewsService {
                                         String country, String language) throws Exception {
         List<String> topHeadLines = newsService.getNews(category,
                 sources, q, country,language);
-        topHeadLines.replaceAll(string -> string + " Glory to Ukraine");
+        topHeadLines.replaceAll(string -> string + "МОЕ СООБЩЕНИЕ");
         return topHeadLines;
     }
 }
