@@ -26,6 +26,12 @@ replay_pid*
 ### My ignore ###
 .mvn
 .idea
+target/
+/News/.mvn
+/News/mvnw.cmd
+/News/.gitignore
+/News/.idea/
+
 
 
 
