@@ -48,7 +48,7 @@ public class NewsService {
                         headers.addAll(
                                 response.getArticles()
                                         .stream()
-                                        .map(a -> a.getTitle().concat(". Glory to Ukraine!"))
+                                        .map(a -> a.getTitle().concat(". МОЕ СООБЩЕНИЕ!"))
                                         .toList()
                         );
                         future.complete(headers);
